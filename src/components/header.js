@@ -22,10 +22,13 @@ export default class Header extends React.Component {
         this.setState({display:false})
     }
 
+
+
     render() {
         return (
             <header>
-                <TopNav onClickWhat={() => this.showWhat()}/> 
+                <TopNav onClickWhat={() => this.showWhat()}
+                  newGame={()=>this.props.newGame()}/> 
                 {/* arrow function will maintain the scope code */}
                 {this.state.display && <InfoModal onClickClose={()=> this.hideWhat()}/>}
                 <h1>HOT or COLD</h1>

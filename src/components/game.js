@@ -9,25 +9,40 @@ export default class Game extends Component {
     constructor(props) {
         super (props)
     this.state ={ 
-       guesses:[]
+       guesses:[],
+       answer: Math.floor(Math.random() * 100) + 1
     }
     
     }
+
+    newGame(){
+        this.setState({
+           guesses:[],
+           answer: Math.floor(Math.random() * 100) + 1
+        })
+    }
+
+
+
     showGuesses(guess){
         const newEntry = guess
           this.setState({
-            guesses:[...this.state.guesses, newEntry]  
+            guesses:[...this.state.guesses, newEntry] 
+             
           })
-        
-    }
     
+    }
+
+
+
+
 //this.state.length for guess Count
 
     render() {
         
     return (
         <div>
-            <Header />
+            <Header newGame={()=>this.newGame()}/>
             <GuessSection input={guess => this.showGuesses(guess)} />
             <GuessCount count={3} />
             <GuessList guesses={this.state.guesses}/>

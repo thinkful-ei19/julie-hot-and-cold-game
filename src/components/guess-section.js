@@ -8,10 +8,13 @@ import './guess-section.css';
 
 export default class GuessSection extends Component {
 
+
     
     render() {
     return (
         <section>
+
+
             <h2 id="feedback">{this.props.feedback}</h2>
             <GuessForm input={guess => this.props.input(guess)} />
         </section>
