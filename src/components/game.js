@@ -11,7 +11,8 @@ export default class Game extends Component {
     this.state ={ 
        guesses:[],
        answer: Math.floor(Math.random() * 100) + 1,
-       feedback: ""
+       feedback: "Play!",
+       count: 0
     }
     
     }
@@ -19,7 +20,8 @@ export default class Game extends Component {
     newGame(){
         this.setState({
            guesses:[],
-           answer: Math.floor(Math.random() * 100) + 1
+           answer: Math.floor(Math.random() * 100) + 1,
+           count: 0
         })
     }
 
@@ -60,7 +62,7 @@ export default class Game extends Component {
         <div>
             <Header newGame={()=>this.newGame()}/>
             <GuessSection feedback={this.state.feedback} input={guess => this.showGuesses(guess)} />
-            <GuessCount count={3} />
+            <GuessCount count={this.state.count} />
             <GuessList guesses={this.state.guesses}/>
 
         </div>
