@@ -13,7 +13,7 @@ export default function TopNav(props) {
                     </a>
                 </li>
                 <li>
-                    <a onlick={(e) => location.reload(e) } className="new" href="#">
+                    <a onClick={(e) => location.reload(e) } className="new" href="#">
                         + New Game
                     </a>
                 </li>
